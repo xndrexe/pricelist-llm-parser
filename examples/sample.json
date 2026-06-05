@@ -1,0 +1,5 @@
+[
+  {"article": "J-1", "name": "Кабель USB-C 1м", "price": 450, "currency": "RUB"},
+  {"article": "J-2", "name": "Кабель USB-C 2м", "price": 590, "currency": "RUB"},
+  {"article": "J-3", "name": "Адаптер USB-C → HDMI", "price": 1290, "currency": "RUB"}
+]

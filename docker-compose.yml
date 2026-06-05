@@ -1,0 +1,14 @@
+services:
+  parser:
+    build: .
+    container_name: pricelist-llm-parser
+    # Контейнер не должен крутиться постоянно — это CLI-утилита.
+    # Запуск по необходимости через `docker compose run --rm parser ...`.
+    profiles: ["cli"]
+    volumes:
+      - ./examples:/work/examples:ro
+      - ./out:/work/out
+    env_file:
+      - .env
+    environment:
+      PRICELIST_OLLAMA_HOST: ${PRICELIST_OLLAMA_HOST:-http://host.docker.internal:11434}
