@@ -123,6 +123,10 @@ def test_bad_price_keeps_item_with_warning() -> None:
     assert item is not None
     assert item.price_rub is None
     assert warning is not None
+    # Менеджер ищет позицию в своём Excel по артикулу: номер строки без
+    # заголовков и пропусков с номером строки в файле не совпадает.
+    assert "X-1" in warning
+    assert "Строка" not in warning
 
 
 def test_article_as_float_becomes_int_string() -> None:

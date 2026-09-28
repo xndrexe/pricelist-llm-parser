@@ -179,5 +179,5 @@ def normalize_row(
 
     warning: str | None = None
     if price is None and price_raw not in (None, ""):
-        warning = f"Строка {row_index}: не удалось разобрать цену {price_raw!r}."
+        warning = f"Артикул {item.article}: не удалось разобрать цену {price_raw!r}."
     return item, warning

@@ -77,7 +77,7 @@ python -m pricelist_parser difficult.xlsx --out result.json --llm
     }
   ],
   "warnings": [
-    "Строка 14: не удалось разобрать цену 'по запросу'."
+    "Артикул B-114: не удалось разобрать цену 'по запросу'."
   ],
   "source_file": "sample.xlsx",
   "rows_total": 25,
