@@ -56,3 +56,10 @@ def test_no_double_assignment_of_same_header() -> None:
 
     assert mapping.price == "Цена руб"
     assert mapping.currency is None
+
+
+def test_retail_price_header_from_1c_export() -> None:
+    """Выгрузка из 1С: цена называется «Розница», слова «цена» в шапке нет."""
+    mapping = map_columns_heuristic(["Код 1С", "Номенклатура", "Розница за упак.", "Наличие"])
+
+    assert mapping.price == "Розница за упак."

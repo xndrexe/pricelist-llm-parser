@@ -134,3 +134,23 @@ def test_article_as_float_becomes_int_string() -> None:
 
     assert item is not None
     assert item.article == "12345"
+
+
+def test_normalize_in_stock_english_phrases() -> None:
+    mapping = ColumnMapping(article="A", name="N", price="P", in_stock="S")
+
+    item_in, _ = normalize_row(
+        {"A": "1", "N": "Laser level", "P": "$84", "S": "In stock"},
+        mapping,
+        source_file="t.html",
+        row_index=0,
+    )
+    item_out, _ = normalize_row(
+        {"A": "2", "N": "Tripod", "P": "$23", "S": "out of stock"},
+        mapping,
+        source_file="t.html",
+        row_index=1,
+    )
+
+    assert item_in is not None and item_in.in_stock is True
+    assert item_out is not None and item_out.in_stock is False

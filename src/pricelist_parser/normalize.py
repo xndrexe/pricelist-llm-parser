@@ -12,8 +12,20 @@ from typing import Any
 
 from pricelist_parser.schema import ColumnMapping, Currency, PriceListItem
 
-_TRUE_TOKENS = {"да", "yes", "true", "+", "y", "в наличии", "есть", "1"}
-_FALSE_TOKENS = {"нет", "no", "false", "-", "n", "отсутствует", "под заказ", "0"}
+_TRUE_TOKENS = {"да", "yes", "true", "+", "y", "в наличии", "есть", "1", "in stock", "available"}
+_FALSE_TOKENS = {
+    "нет",
+    "no",
+    "false",
+    "-",
+    "n",
+    "отсутствует",
+    "под заказ",
+    "нет в наличии",
+    "0",
+    "out of stock",
+    "sold out",
+}
 
 # Порядок важен: ловим валютные подсказки внутри значений колонки price или currency.
 _CURRENCY_TOKENS: list[tuple[str, Currency]] = [

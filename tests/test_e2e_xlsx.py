@@ -54,3 +54,15 @@ def test_e2e_html_to_json(html_table: Path) -> None:
     assert result.rows_kept == 2
     assert result.items[0].article == "H-1"
     assert result.items[0].price_rub == 120.0
+
+
+def test_e2e_missing_price_column_is_reported(tmp_path: Path) -> None:
+    """Колонку цены не нашли — позиции остаются, но об этом есть предупреждение."""
+    path = tmp_path / "no_price.csv"
+    path.write_text("Артикул;Наименование;Что-то\nA-1;Гайка;12\n", encoding="utf-8")
+
+    result = parse_pricelist(path)
+
+    assert result.rows_kept == 1
+    assert result.items[0].price_rub is None
+    assert any("цен" in warning.lower() for warning in result.warnings)

@@ -55,6 +55,12 @@ def parse_pricelist(
 
     items = []
     warnings: list[str] = []
+    if mapping.price is None:
+        # Без этого предупреждения прайс «успешно» разбирается с пустыми ценами.
+        warnings.append(
+            "Колонка цены не найдена — цены оставлены пустыми. "
+            "Попробуйте режим --llm или переименуйте заголовок.",
+        )
     for index, row in enumerate(rows):
         item, warning = normalize_row(
             row,
