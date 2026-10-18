@@ -9,7 +9,7 @@ description = "CLI-парсер прайс-листов в разнородны�
 readme = "README.md"
 requires-python = ">=3.11"
 license = { text = "MIT" }
-authors = [{ name = "Aleksandr Kostiukhov", email = "skostuhov@gmail.com" }]
+authors = [{ name = "Aleksandr Kostiukhov", email = "102666804+xndrexe@users.noreply.github.com" }]
 keywords = ["pricelist", "parser", "etl", "llm", "ollama", "pydantic", "xlsx", "csv"]
 
 dependencies = [
