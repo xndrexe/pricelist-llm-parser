@@ -5,6 +5,11 @@
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
 [![Code style: ruff](https://img.shields.io/endpoint?url=https://raw.githubusercontent.com/astral-sh/ruff/main/assets/badge/v2.json)](https://github.com/astral-sh/ruff)
 
+**Что это и кому.** Утилита для магазинов и закупщиков, которые получают прайсы от
+разных поставщиков в разном виде: она сводит xlsx, csv, html и json в одну
+таблицу с одинаковыми колонками. Нестандартные заголовки помогает распознать
+локальная LLM через Ollama — данные никуда не уходят.
+
 CLI-утилита, которая берёт прайс-лист в любом из четырёх форматов
 (.xlsx / .csv / .html / .json) и приводит его к единой Pydantic-схеме.
 Колонки определяет либо словарём синонимов, либо локальной LLM через
